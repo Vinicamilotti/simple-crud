@@ -1,15 +1,16 @@
 {
   "name": "simple-crud",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple crud for demonstration porpouses",
   "main": "index.js",
+  "repository": {"url": "https://github.com/Vinicamilotti/simple-crud"},
   "scripts": {
     "build": "npx tsc",
     "start": "node dist/index.js",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q index.ts\""
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Vinicius Camilotti",
+  "license": "MIT",
   "dependencies": {
     "@prisma/client": "^4.6.1",
     "dotenv": "^16.0.3",
