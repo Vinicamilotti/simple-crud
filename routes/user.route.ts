@@ -5,6 +5,7 @@ import {
   getAllUSers,
   getUserById,
   getUserByUsername,
+  getUserPosts,
   updateUser,
 } from "../controllers/user.controller";
 import express from "express";
@@ -22,3 +23,5 @@ userRouter.get("/users/username/:username", getUserByUsername);
 userRouter.patch("/users/:id", updateUser);
 
 userRouter.delete("/users/:id", deleteUser);
+
+userRouter.get("/users/username/:username/posts", getUserPosts);

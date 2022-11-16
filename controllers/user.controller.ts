@@ -15,6 +15,8 @@ const createUser = async (req: Request, res: Response) => {
         username: create.username,
         type: create.type,
         id: create.id,
+        createAt: create.createdAt,
+        updatedAt: create.updatedAt,
       };
       res.json(respose);
     } else {
@@ -34,6 +36,8 @@ const getAllUSers = async (req: Request, res: Response) => {
       username: item.username,
       id: item.id,
       type: item.type,
+      createAt: item.createdAt,
+      updatedAt: item.updatedAt,
     };
   });
   res.json(allUsersInfo);
@@ -46,6 +50,8 @@ const getUserById = async (req: Request, res: Response) => {
     username: user?.username,
     id: user?.id,
     type: user?.type,
+    createAt: user?.createdAt,
+    updatedAt: user?.updatedAt,
   };
   res.json(response);
 };
@@ -57,6 +63,8 @@ const getUserByUsername = async (req: Request, res: Response) => {
     username: user?.username,
     id: user?.id,
     type: user?.type,
+    createAt: user?.createdAt,
+    updatedAt: user?.updatedAt,
   };
   res.json(response);
 };
@@ -106,6 +114,12 @@ const deleteUser = async (req: Request, res: Response) => {
   }
 };
 
+const getUserPosts = async (req: Request, res: Response) => {
+  const username = req.params.username;
+  const posts = await prisma.posts.findMany({ where: { username } });
+  res.json(posts);
+};
+
 export {
   createUser,
   getAllUSers,
@@ -113,4 +127,5 @@ export {
   getUserByUsername,
   updateUser,
   deleteUser,
+  getUserPosts,
 };
