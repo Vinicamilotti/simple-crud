@@ -16,3 +16,19 @@ const CreateUserSchema = z.object({
 });
 
 export type CreateUser = z.TypeOf<typeof CreateUserSchema>;
+
+const updateUserSchema = z.object({
+  username: z.string(),
+  password: z.string(),
+  newData: z.object({
+    password: z.string(),
+  }),
+});
+export type UpdateUser = z.TypeOf<typeof updateUserSchema>;
+
+const deleteUserSchema = z.object({
+  username: z.string(),
+  password: z.string(),
+});
+
+export type DeleteUser = z.TypeOf<typeof deleteUserSchema>;
